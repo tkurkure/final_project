@@ -6,6 +6,18 @@ dataset of Shah et al. (2025).
 
 **Live demo:** https://huggingface.co/spaces/f006tsj/central-bank-stance-reader
 
+## Data
+
+Everything is downloaded from Hugging Face at runtime; no data is stored in this repo.
+
+- Labelled sentences: [`gtfintechlab/all_annotated_sentences_25000`](https://huggingface.co/datasets/gtfintechlab/all_annotated_sentences_25000)
+  (25 banks × 1,000 sentences; configs `5768`, `78516`, `944601`)
+- Czech hold-out: [`gtfintechlab/czech_national_bank`](https://huggingface.co/datasets/gtfintechlab/czech_national_bank)
+
+Source: Agam Shah et al. (2025), *Words That Unite The World: A Unified Framework for
+Deciphering Central Bank Communications Globally*, NeurIPS 2025,
+[arXiv:2505.17048](https://arxiv.org/abs/2505.17048). Released under CC BY-NC-SA 4.0.
+
 ## Research questions
 
 1. **How much worse does a model do on a bank it wasn't trained on?**
@@ -64,7 +76,7 @@ scripts/
   deploy_web.sh         publish the browser version (free static Space + model repo)
 space/                  the Gradio Space's app.py, README and CPU requirements
 web/                    the browser version: index.html, worker.js, Space README
-notebooks/              thin drivers that import from src/wcb
+notebooks/              thin drivers that import from src/wcb (run in Google Colab)
 results/                one JSON per fold (committed)
 ```
 
@@ -106,8 +118,20 @@ uv pip install --python .venv/bin/python -e ".[web]"
 scripts/deploy_web.sh f006tsj
 ```
 
-Every run is **resumable** — a fold whose results file exists is skipped — so an
-8-hour JupyterHub session that times out costs one fold, not the sweep.
+Every run is **resumable** — a fold whose results file exists is skipped — so a
+Colab session that disconnects costs one fold, not the sweep.
+
+### Google Colab
+
+The notebooks were run in Google Colab. Dartmouth's JupyterHub had no GPU, so all
+RoBERTa training ran on a Colab **T4**:
+
+- `notebooks/00_colab_runner.ipynb` — the first RoBERTa sweep (partition `5768`)
+- `notebooks/04_colab_roberta_more_seeds.ipynb` — partitions `78516` and `944601`
+
+Each notebook mounts Google Drive and writes results there, so a disconnect doesn't
+lose finished folds. They install the project with `--no-deps` and leave Colab's own
+`torch` alone, because replacing it breaks the CUDA build.
 
 ## Data notes
 
