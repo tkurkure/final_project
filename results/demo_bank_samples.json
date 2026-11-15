@@ -1,0 +1,1280 @@
+{
+ "seed": 5768,
+ "banks": [
+  {
+   "bank": "bank_negara_malaysia",
+   "name": "Bank Negara Malaysia",
+   "drop_points": 15.5,
+   "with_bank_f1": 62.3,
+   "without_bank_f1": 46.9,
+   "sentences": [
+    {
+     "year": 2008,
+     "text": "under these conditions, sustaining domestic demand is key to ensuring that growth in 2009 remains positive",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2016,
+     "text": "the adjustment to the opr is intended for the degree of monetary accommodativeness to remain consistent with the policy stance to ensure that the domestic economy continues on a steady growth path amid stable inflation, supported by continued healthy financial intermediation in the economy",
+     "human": "hawkish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2017,
+     "text": "private consumption will remain the largest driver of growth, supported by continued improvements in income and overall labour market conditions",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2018,
+     "text": "globally, financial markets have remained stable",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2020,
+     "text": "overall investment activity is expected to record a modest recovery, underpinned by ongoing and new projects, both in the public and private sectors",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2023,
+     "text": "further normalisation to the degree of monetary policy accommodation would be informed by the evolving conditions and their implications to the domestic inflation and growth outlook",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "monetary_authority_singapore",
+   "name": "Monetary Authority of Singapore",
+   "drop_points": 8.7,
+   "with_bank_f1": 67.3,
+   "without_bank_f1": 58.6,
+   "sentences": [
+    {
+     "year": 2001,
+     "text": "the rebound in economic growth in 2000 was broad-based across the major sectors of the economy.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2003,
+     "text": "growth in europe and japan has remained sluggish.",
+     "human": "neutral",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2008,
+     "text": "slower growth in asia will restrain activity in a range of services industries in singapore such as transport-hub and tourism.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2013,
+     "text": "for 2013, cpi-all items inflation is projected to come in at the upper half of the 2-3% forecast range.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2017,
+     "text": "according to the advance estimates released by the ministry of trade and industry today, the singapore economy grew by 6.3% on a quarter-on-quarter seasonally-adjusted annualised basis in q3 2017, following the 2.4% recorded in q2.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "s$ nominal effective exchange rate (s$neer) over the last six months, the s$neer has fluctuated slightly above the mid-point of the policy band.",
+     "human": "neutral",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "brazil_copom",
+   "name": "Central Bank of Brazil (COPOM)",
+   "drop_points": 5.5,
+   "with_bank_f1": 64.4,
+   "without_bank_f1": 58.9,
+   "sentences": [
+    {
+     "year": 2000,
+     "text": "once the central scenario had been presented, simulations were made of the different economic models based on alternative scenarios",
+     "human": "irrelevant",
+     "with_bank": "irrelevant",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2009,
+     "text": "these considerations become even more relevant in periods surrounded by heightened uncertainty",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2018,
+     "text": "nevertheless, the copom pondered once more the risk to a lower-than-expected prospective inflation the economy continues to operate with a high level trajectory",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2018,
+     "text": "indicators and information available after the temporary halt in the transportation sector that occurred at the end of may 2018 point to the continuation of economy recovery of the brazilian economy",
+     "human": "hawkish",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2022,
+     "text": "the twelve-month inflation projection for the first quarter of 2024, in the scenario using the interest rate trajectory extracted from the focus survey, remains consistent with the strategy of inflation convergence to around the target over the relevant horizon",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2023,
+     "text": "the committee believes that the disinflation dynamics is still characterized by a process with two distinct stages",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "central_bank_of_egypt",
+   "name": "Central Bank of Egypt",
+   "drop_points": 5.5,
+   "with_bank_f1": 82.6,
+   "without_bank_f1": 77.1,
+   "sentences": [
+    {
+     "year": 2006,
+     "text": "on the other hand, externally, risks to global inflation are still skewed to the upside and uncertainty surrounds the international interest rate outlook.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2011,
+     "text": "given the upside risks on the inflation outlook and the increased uncertainty at this juncture, the mpc judges that a rate hike is needed.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2013,
+     "text": "headline cpi increased by 0.15 percent (m/m) in december following a decline of 1.31 percent (m/m) in november, bringing the annual rate to 4.66 percent from 4.25 percent in the previous month.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2020,
+     "text": "annual headline urban inflation recorded 7.2 percent in january 2020 compared to 7.1 percent in december 2019, as monthly inflation recorded 0.7 percent in january 2020 compared to 0.6 percent in january 2019.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2024,
+     "text": "moreover, the recent uptick in private economic activity was not sufficient to offset the decline in public economic activity.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2024,
+     "text": "in preparation for the successful implementation of these measures, sufficient funding has been secured to avail foreign exchange liquidity.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "peoples_bank_of_china",
+   "name": "People's Bank of China",
+   "drop_points": 5.1,
+   "with_bank_f1": 79.9,
+   "without_bank_f1": 74.8,
+   "sentences": [
+    {
+     "year": 2005,
+     "text": "measures should be taken to promote institutional building of the financial market, encourage innovation ofnew financial products and instruments and develop financial derivatives.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2007,
+     "text": "market supply and demand offoreign exchange should be allowed to play a greater role in the process ofincreasing rmb exchange rate flexibility, with a view to keeping the rmbexchange rate basically stable at an adaptive and equilibrium level.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2007,
+     "text": "efforts should be made tofully implement the scientific development approach by improving and carryingout each macroeconomic policy to prevent shifts from a relatively fast growthto an economic overheating and from structural price rise to full-scaleinflation, so as to realize good and rapid economic development.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "the pbc will implement monetary policy in a flexible and targeted manner, and strengthen the coordination with fiscal, industrial, and regulatory policies.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2021,
+     "text": "the structural monetary policy tools are expected to play more roles and become better targeted.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2023,
+     "text": "supply and demand in foreign exchange market have been basically balanced, china’s current account surplus has remained at a stable level, and foreign exchange reserves have been in a sufficient state.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "central_reserve_bank_peru",
+   "name": "Central Reserve Bank of Peru",
+   "drop_points": 4.5,
+   "with_bank_f1": 77.9,
+   "without_bank_f1": 73.4,
+   "sentences": [
+    {
+     "year": 2002,
+     "text": "formerly, the said rate was 3,5 percent",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2007,
+     "text": "moreover, given current macroeconomic data, the board considers that this adjustment in the reference interest rate does not imply the beginning of a sequence of interest rate rises",
+     "human": "dovish",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2007,
+     "text": "core inflation was 0.59 percent and accumulated 2.9 percent over the last twelve months",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2010,
+     "text": "core inflation, which showed a rate of 0.08 percent, accumulated an annual growth of 1.79 percent and remains around the 2 percent target",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2014,
+     "text": "inflation in september showed a rate of 0.16 percent, as a result of which inflation in the last 12 months rose from 2.69 percent in august to 2.74 percent in september, within the target range",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2024,
+     "text": "in september, the majority of the coincident and expectation indicators were at the optimistic territory, still with a slight moderation relative to the previous month",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "rbi",
+   "name": "Reserve Bank of India",
+   "drop_points": 4.1,
+   "with_bank_f1": 65.2,
+   "without_bank_f1": 61.0,
+   "sentences": [
+    {
+     "year": 2017,
+     "text": "that, in itself, will put downward pressure on prices and neutralize several upside risks to inflation.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2017,
+     "text": "for sub-sectors such as infrastructure (especially public transportation, railways etc.)",
+     "human": "irrelevant",
+     "with_bank": "irrelevant",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2021,
+     "text": "with the present growth momentum, gdp in 2021-22 is expected to exceed the level achieved in 2019-20.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "output gap is especially difficult to measure under distress as well as pull out of a decade long investment slowdown.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2021,
+     "text": "but this is likely to be temporary, although uncertainty remains about the timeline.",
+     "human": "neutral",
+     "with_bank": "irrelevant",
+     "without_bank": "irrelevant"
+    },
+    {
+     "year": 2024,
+     "text": "real gdp in 2023-24 is expected to grow at 7.3 per cent on top of a growth of 7.2 per cent recorded in 2022-23.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_israel",
+   "name": "Bank of Israel",
+   "drop_points": 3.2,
+   "with_bank_f1": 70.6,
+   "without_bank_f1": 67.4,
+   "sentences": [
+    {
+     "year": 2006,
+     "text": "forecasters' one-year inflation expectations stood at 2.2 percent in march and april, with the range of their forecasts narrowing in april to between capital market and those of forecasters have been close to the midpoint of the target range for more than a year.",
+     "human": "hawkish",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2007,
+     "text": "in this context it was noted that activity had actually accelerated in the last few months, as reflected in the recent rises in the composite state-of-the-economy indices.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2008,
+     "text": "the bank of israel will continue to monitor worldwide economic developments and the situation in israel closely, and will act to encourage employment and growth, to support the stability of the financial system, and to achieve price stability.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2009,
+     "text": "japan's economy continues to report positive data pointing to a recovery trend, and it seems that the economy, which had lagged behind the other asian economies, has started closing the gap in the last few months.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2010,
+     "text": "the improvement in financial conditions was maintained.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2015,
+     "text": "the fed chair repeated the assessment that the federal reserve is likely to increase the interest rate this year.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_phillipines",
+   "name": "Central Bank of the Philippines",
+   "drop_points": 3.2,
+   "with_bank_f1": 56.8,
+   "without_bank_f1": 53.6,
+   "sentences": [
+    {
+     "year": 2002,
+     "text": "moreover, uncertainties sparked by the political impasse in the senate and the still fragile recovery of the global economy dampened market sentiments and investor confidence.",
+     "human": "neutral",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2003,
+     "text": "the monetary board also highlighted the need to ensure that the macroeconomic environment remains conducive to credit demand and investment activity.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2005,
+     "text": "the october unemployment rate, however, was lower than the 11.7 percent posted in the preceding quarter.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2007,
+     "text": "however, a number of risks remain, notably the expected slower growth trajectory of the us economy, a disorderly unwinding of global imbalances, and a potential increase in financial market volatility.",
+     "human": "dovish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2012,
+     "text": "- the mb also noted that core inflation remains firm.",
+     "human": "neutral",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2016,
+     "text": "likewise, higher year-on-year inflation rates from non-food items (clothing and footwear, health, recreation and culture, as well as restaurant and miscellaneous goods and services) tempered the negative inflation outturn in housing, water, electricity, gas and other fuels during the month.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_mexico",
+   "name": "Bank of Mexico",
+   "drop_points": 2.5,
+   "with_bank_f1": 73.2,
+   "without_bank_f1": 70.7,
+   "sentences": [
+    {
+     "year": 2020,
+     "text": "in addition, most members mentioned the risks of public finances deteriorating or of increases in agricultural, livestock product or energy prices being greater than expected, which could make non-core inflation revert to higher levels.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "on the other hand, he/she mentioned that, in emerging economies, and in mexico in particular, price formation can become rapidly contaminated by the shocks that have affected inflation.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "one member underlined that the unemployment rate increased to 4.65% in april, which represents 2.7 million people.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2023,
+     "text": "he/she mentioned that, the above, together with changes in the composition of government expenditures, implies substantial challenges for the fiscal consolidation foreseen for 2025.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2023,
+     "text": "one member argued that measures of economic slack will gain even more relevance in the coming months.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2024,
+     "text": "one member mentioned that the expansion of domestic financing sources continued reflecting the acquisition of longterm instruments, which is consistent with the offered yield given the level of the reference rate.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "central_bank_of_russia",
+   "name": "Central Bank of the Russian Federation",
+   "drop_points": 2.5,
+   "with_bank_f1": 77.6,
+   "without_bank_f1": 75.1,
+   "sentences": [
+    {
+     "year": 2014,
+     "text": "due to the long-term demographic trends labour supply decreases.",
+     "human": "hawkish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2018,
+     "text": "the increase of the key rate will help maintain real interest rates on deposits in the positive territory, which will support the attractiveness of savings and the balanced growth in consumption.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "high-frequency indicators of economic activity suggest that the economic recovery in early 2021 is ongoing.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2022,
+     "text": "according to the bank of russia’s forecast, given the monetary policy stance, annual inflation will slow down to 5.0–7.0% in 2023 to return to 4% in 2024.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2022,
+     "text": "while the partial mobilisation may mainly create disinflationary pressure in the coming months due to subdued consumer demand, its subsequent effects will be pro-inflationary as it adds to supply-side restrictions in the broader economy.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2022,
+     "text": "this primarily concerns the labour market.",
+     "human": "irrelevant",
+     "with_bank": "irrelevant",
+     "without_bank": "irrelevant"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_japan",
+   "name": "Bank of Japan",
+   "drop_points": 2.3,
+   "with_bank_f1": 71.7,
+   "without_bank_f1": 69.4,
+   "sentences": [
+    {
+     "year": 2008,
+     "text": "liquidity in foreign exchange swap markets was low, and there continued to be intense funding strains in markets for u.s. dollar funds maturing beyond the year-end.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2008,
+     "text": "one member added that firms might have changed their price-setting behavior in the course of the recent increases in energy and materials prices and might now tend to revise their sales prices in response to external shocks more quickly than before.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2012,
+     "text": "it was expected to turn upward, albeit marginally, in the october-december quarter.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2018,
+     "text": "regarding fiscal 2019 and fiscal 2020, they concurred that the pace of increase in private consumption was projected to be moderate, mainly because it was likely to temporarily turn to a decline due to the effects of the scheduled consumption tax hike in october 2019.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2020,
+     "text": "the member then expressed the view that close attention should be paid to future price developments, taking into consideration the possibility that both the natural rate of interest and inflation expectations would decline.",
+     "human": "hawkish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2024,
+     "text": "a different member commented that it was highly likely that the mechanism behind price developments would continue to be consistent with the price stability target, although the inflation rate could fall below 2 percent, mainly due to temporary factors.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_thailand",
+   "name": "Bank of Thailand",
+   "drop_points": 2.1,
+   "with_bank_f1": 72.7,
+   "without_bank_f1": 70.5,
+   "sentences": [
+    {
+     "year": 2011,
+     "text": "the extension of the cost-of-living alleviation measures may slow the rise in measured inflation figures but other measures such as the prospective increases in the minimum wage and fiscal spending amid continued economic growth will likely add to inflationary pressure and may heighten inflation expectations.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2017,
+     "text": "this upward revision was due to the better-than-expected outturn in the first quarter, as well as better-than-expected improvements in merchandise and service exports, which partly offset the impact of delays in public investment.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2020,
+     "text": "merchandise exports would gradually improve in several categories.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2020,
+     "text": "public expenditure would expand more than assessed.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2022,
+     "text": "the depreciation of the baht against the us dollar was rapid and continuous due to the strengthening of the us dollar but was still in line with regional currencies.",
+     "human": "hawkish",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2024,
+     "text": "- the committee expressed concern over elevated household debt and recognized the importance of debt deleveraging.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "central_bank_taiwan",
+   "name": "Central Bank of China (Taiwan)",
+   "drop_points": 1.8,
+   "with_bank_f1": 58.7,
+   "without_bank_f1": 56.9,
+   "sentences": [
+    {
+     "year": 2020,
+     "text": "despite recent consecutive negative cpi annual growth rates, a lot more items in the cpi basket of goods and services exhibited price rises than those items with price declines, indicating that there was barely a broad-based price downtrend, nor pronounced signs of deflation",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "regarding private consumption, domestic covid-19  containment policy was eased, government measures to boost consumption were launched, and  business in the services industry  a domestically oriented sector  gradually rebounded",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2022,
+     "text": "many  major central banks continued to raise their policy  rates to  tackle inflation whereas some economies still kept an accommodative monetary policy  stance or even reduced rates",
+     "human": "neutral",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2022,
+     "text": "meanwhile, real estate loans continued to take up a rising share in  total loans",
+     "human": "neutral",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2023,
+     "text": "one board director noted that although  recent declines in  animal  feed costs took  pork prices lower, price stickiness would prevent related food-away-from-home prices  from decreasing correspondingly",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2024,
+     "text": "several board directors expressed concern about the aforementioned cap tightening  adversely impacting home-movers, and suggested the bank communicate to the public  about relevant home-mover assistance measures",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "swiss_national_bank",
+   "name": "Swiss National Bank",
+   "drop_points": 1.7,
+   "with_bank_f1": 64.7,
+   "without_bank_f1": 63.0,
+   "sentences": [
+    {
+     "year": 2007,
+     "text": "this growth can be expected to persist, thanks to the healthy state of the swiss economy",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2011,
+     "text": "due to the risks mentioned previously, this conditional inflation forecast is associated with a very high level of uncertainty",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2017,
+     "text": "the positive baseline scenario for the global economy continues to be subject to risks",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2018,
+     "text": "for 2020, the snb expects to see inflation of 1.2, compared with the 1.6 forecast in the last quarter",
+     "human": "dovish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2019,
+     "text": "negative interest and the willingness to intervene are important in order to counteract the attractiveness of swiss franc investments and thus ease pressure on the currency",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2022,
+     "text": "this favourable forecast is based, among other things, on the assumption that the global economy continues to grow and that the war in ukraine does not escalate further",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_korea",
+   "name": "Bank of Korea",
+   "drop_points": 1.4,
+   "with_bank_f1": 69.7,
+   "without_bank_f1": 68.3,
+   "sentences": [
+    {
+     "year": 2011,
+     "text": "increases in prices of industrial products, and core inflation rose compared to the previous month as well.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2014,
+     "text": "despite a narrowing of the extent of decline in agricultural product prices as the decline in petroleum product prices accelerated.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2021,
+     "text": "labor market conditions have continued to improve, with a sustained year-on-year increase in the number of persons employed.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2021,
+     "text": "the member emphasized that particular attention should be paid to the sudden concentration in the asset markets of liquidity that had increased as a result of the aggressive monetary policy in response to the covid-19 shock.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "one member expressed the opinion that it would be desirable to raise the base rate to 0.75% from the current level of 0.50%.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2022,
+     "text": "the member took the view that, given pent-up service demand since the outbreak of the pandemic and growth in surplus saving so far, there was an underlying trend of recovery in solid consumption demand.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "central_bank_republic_of_turkey",
+   "name": "Central Bank of Turkey",
+   "drop_points": 0.8,
+   "with_bank_f1": 75.3,
+   "without_bank_f1": 74.5,
+   "sentences": [
+    {
+     "year": 2015,
+     "text": "during this period, non-gold exports were weaker than their fourth-quarter average, while non-gold imports were flat.",
+     "human": "dovish",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2015,
+     "text": "by sectors, employment picked up slightly in services and construction but declined in the industrial sector for the third period in a row.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2018,
+     "text": "domestic demand stood out as the main driver of quarterly growth in the first quarter.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "prices of food and non-alcoholic beverages rose by 2.53% in december but annual inflation in this group dropped by 0.47 points to 20.61% due to the base effect.",
+     "human": "neutral",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2024,
+     "text": "excess liquidity in the market due to residents' and non-residents' preference for turkish lira assets was mostly replaced by a liquidity deficit after may 24, with the imposed increase in required reserves.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2024,
+     "text": "the committee emphasized that the alignment of inflation expectations and pricing behavior with projections has gained relative importance for the disinflation process.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "fomc",
+   "name": "Federal Reserve System (FOMC)",
+   "drop_points": 0.7,
+   "with_bank_f1": 69.0,
+   "without_bank_f1": 68.3,
+   "sentences": [
+    {
+     "year": 1998,
+     "text": "given that the balance of risks was seen as pointing to rising inflation over time, the members agreed that it was desirable to retain the tilt toward restraint in the directive.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2007,
+     "text": "energy prices were high enough to encourage continued investment in alternative fuels.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2012,
+     "text": "participants' economic projections and policy assessments are described in more detail in the summary of economic projections, which is attached as an addendum to these minutes.",
+     "human": "irrelevant",
+     "with_bank": "irrelevant",
+     "without_bank": "irrelevant"
+    },
+    {
+     "year": 2014,
+     "text": "the decline in rates coincided with an appreciable increase in the volume of refinancing activity.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2015,
+     "text": "the unemployment rate, at 5.0 percent in november, was 0.7 percentage point lower than in january and close to most participants' estimates of its longer-run normal level.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2020,
+     "text": "the staff observed that the uncertainty related to the future course of the pandemic, the measures to control it, and the associated economic effects remained elevated.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_canada",
+   "name": "Bank of Canada",
+   "drop_points": 0.2,
+   "with_bank_f1": 75.0,
+   "without_bank_f1": 74.8,
+   "sentences": [
+    {
+     "year": 2011,
+     "text": "total cpi inflation is being boosted temporarily by the effects of provincial indirect taxes, but is expected to converge to the 2 per cent target by the end of 2012.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2012,
+     "text": "to the extent that the economic expansion continues and the current excess supply in the economy is gradually absorbed, some modest withdrawal of the present considerable monetary policy stimulus may become appropriate, consistent with achieving the 2 per cent inflation target over the medium term.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2012,
+     "text": "in the united states, the rebound in real gdp during the second half of 2011 was stronger than anticipated.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2013,
+     "text": "total cpi inflation has also been restrained by declining mortgage interest costs.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2015,
+     "text": "the bank expects canada’s economy to gradually strengthen in the second half of this year, with real gdp growth averaging 2.1 per cent in 2015 and 2.4 per cent in 2016.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2019,
+     "text": "the bank rate is correspondingly 2 percent and the deposit rate is 1 ½ percent.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_england",
+   "name": "Bank of England",
+   "drop_points": 0.1,
+   "with_bank_f1": 74.3,
+   "without_bank_f1": 74.2,
+   "sentences": [
+    {
+     "year": 2003,
+     "text": "the fall in lfs unemployment had been more than accounted for by short-term unemployment, and the rate of inflows to the claimant count was little changed.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2011,
+     "text": "but import growth had also remained strong, with the result that net trade had continued to make less of a contribution to gdp growth than the committee had previously expected.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2012,
+     "text": "and the renewed sense of caution in financial markets might delay any significant easing in credit conditions.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2015,
+     "text": "it would be hard to confirm or refute this hypothesis until further data regarding household income and saving became available.",
+     "human": "irrelevant",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2016,
+     "text": "uncertainty about the result of the referendum had continued to have a strong effect on sterling exchange rates, with some sharp movements in sterling during the month following the release of opinion polls.",
+     "human": "neutral",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2022,
+     "text": "in the euro area, annual hicp inflation had increased to 7.5% in april, with core inflation at 3.5%.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "ecb",
+   "name": "European Central Bank",
+   "drop_points": -0.0,
+   "with_bank_f1": 71.4,
+   "without_bank_f1": 71.4,
+   "sentences": [
+    {
+     "year": 2017,
+     "text": "accordingly, members widely agreed that, while the growth outlook had become more favourable, the overall picture of the outlook for price stability had not fundamentally changed.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2019,
+     "text": "euro area goods exports had contracted in the second quarter as the stockbuilding in the united kingdom, which had lifted euro area goods exports in the first quarter, had reversed.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2019,
+     "text": "it was highlighted that domestic demand had so far been rather resilient, underpinned by strong employment and wage growth, favourable lending conditions and support from a very accommodative monetary policy stance and a mildly expansionary fiscal stance.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2020,
+     "text": "while labour cost pressures had remained resilient amid tighter labour markets, the weaker growth momentum was delaying their pass-through to inflation.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2021,
+     "text": "it was argued that such wage growth needed to reflect a persistent shift in the growth rate rather than a one-off shift in the level.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2023,
+     "text": "in particular, it was recalled that developments in narrow money had typically been a good leading indicator of turning points in economic activity.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    }
+   ]
+  },
+  {
+   "bank": "bank_of_colombia",
+   "name": "Bank of the Republic (Colombia)",
+   "drop_points": -0.1,
+   "with_bank_f1": 69.2,
+   "without_bank_f1": 69.3,
+   "sentences": [
+    {
+     "year": 2009,
+     "text": "this will ensure the monetary authority can continue to use the policy tools at its disposal in a countercyclical way.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2011,
+     "text": "generally speaking, the macroeconomic conditions continue to signal an important amount of economic growth in 2011.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2012,
+     "text": "it was also higher than the data from october last year and than the average calculated since 2001.",
+     "human": "irrelevant",
+     "with_bank": "irrelevant",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2012,
+     "text": "the recovery in the consumer confidence index in september not offset the declines registered during the two previous months.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2012,
+     "text": "in addition, a migration from national production to sales of imported goods can be seen, especially clothing, shoes, and manufactured leather products.",
+     "human": "irrelevant",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2016,
+     "text": "according to the same source, food supply in the central markets remains high.the annual variation of the ppi exhibited a significant reduction (from 8.38% in july to 4.89% in august).",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "reserve_bank_australia",
+   "name": "Reserve Bank of Australia",
+   "drop_points": -0.8,
+   "with_bank_f1": 72.6,
+   "without_bank_f1": 73.3,
+   "sentences": [
+    {
+     "year": 2011,
+     "text": "this reversal of capital flows had been reflected in large depreciations of emerging market currencies against the us dollar.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2011,
+     "text": "the local share market also moved generally in line with its global counterparts, but in contrast to recent months, it tended to outperform other markets.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2015,
+     "text": "however, across the rest of the country, which accounts for around 60 per cent of australia's dwelling stock, housing price growth had declined.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2019,
+     "text": "gdp growth in the united states had remained strong over 2018.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2020,
+     "text": "interest rates on housing and business loans remained historically low.",
+     "human": "hawkish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2022,
+     "text": "broader measures of spare capacity had also declined slightly over october, to remain around multi-decade lows, and the rate of participation in the labour force was close to its recent record high.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    }
+   ]
+  },
+  {
+   "bank": "central_bank_of_chile",
+   "name": "Central Bank of Chile",
+   "drop_points": -1.2,
+   "with_bank_f1": 77.9,
+   "without_bank_f1": 79.1,
+   "sentences": [
+    {
+     "year": 2018,
+     "text": "the us-china trade conflict had intensified, which, coupled with the cyclical state of the us economy and its difference from that of other developed economies, had caused a global appreciation of the dollar and a fall in commodity prices.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2020,
+     "text": "furthermore, on the day of the meeting, the country had learned of chile’s sovereign risk rating downgrade.",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2021,
+     "text": "this was associated with the increased household liquidity and the gradual reopening of the economy.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2021,
+     "text": "capital inflows to emerging economies had tended to moderate, with marginal outflows from latin america.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2022,
+     "text": "the various measures of expectations available (i.e., taken from surveys and financial asset prices) placed it at 11.25% at the october meeting, and then peaked between 11.25% and 11.5% at december.",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "neutral"
+    },
+    {
+     "year": 2022,
+     "text": "the bank of england had added 50 bps to its benchmark rate, amid high pressures from wages.",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "hawkish"
+    }
+   ]
+  },
+  {
+   "bank": "national_bank_poland",
+   "name": "National Bank of Poland",
+   "drop_points": -1.6,
+   "with_bank_f1": 75.6,
+   "without_bank_f1": 77.1,
+   "sentences": [
+    {
+     "year": 2008,
+     "text": "with regard to the united states, interest rates are expected to be raised at the end of the year, whereas with regard to the euro area it had become common to expect interest rates to be kept at the current level",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "hawkish"
+    },
+    {
+     "year": 2013,
+     "text": "they also pointed to the recent outflow of portfolio capital from poland, related to lower relative attractiveness of investing in polish treasury bonds",
+     "human": "neutral",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2013,
+     "text": "at the same time, in the opinion of a few of these council members, further monetary policy easing could, in the longer term, trigger a growth in imbalances in the polish economy",
+     "human": "hawkish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2014,
+     "text": "in the opinion of some council members, favourable foreign investor sentiment towards the polish economy is supported by its strong fundamentals and the lack of macroeconomic imbalances",
+     "human": "neutral",
+     "with_bank": "neutral",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2017,
+     "text": "yet, it was indicated that investment expenditures remained low",
+     "human": "dovish",
+     "with_bank": "dovish",
+     "without_bank": "dovish"
+    },
+    {
+     "year": 2024,
+     "text": "when referring to the medium-term outlook, it was pointed out that the potential increase of inflation in the second half of 2024 might also influence inflation expectations",
+     "human": "hawkish",
+     "with_bank": "hawkish",
+     "without_bank": "neutral"
+    }
+   ]
+  }
+ ]
+}

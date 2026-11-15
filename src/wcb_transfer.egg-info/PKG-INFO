@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: wcb-transfer
+Version: 0.1.0
+Summary: Cross-bank monetary policy stance detection (CS 72 final project)
+Requires-Python: >=3.10
+Requires-Dist: datasets
+Requires-Dist: transformers
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: nltk
+Provides-Extra: demo
+Requires-Dist: gradio>=4.0; extra == "demo"

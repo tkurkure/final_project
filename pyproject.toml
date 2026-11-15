@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wcb-transfer"
+version = "0.1.0"
+description = "Cross-bank monetary policy stance detection (CS 72 final project)"
+requires-python = ">=3.10"
+dependencies = [
+    "datasets",
+    "transformers",
+    "scikit-learn",
+    "pandas",
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "nltk",
+]
+
+# torch is deliberately NOT a dependency. Managed clusters (and Colab) ship a torch
+# build matched to their CUDA driver; letting pip resolve it here would replace a
+# working GPU build with a generic one.
+[project.optional-dependencies]
+demo = ["gradio>=4.0", "pypdf>=4"]
+web = ["onnx", "onnxruntime", "onnxscript"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

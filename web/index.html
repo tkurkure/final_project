@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central Bank Stance Reader</title>
+<!--
+  Browser version of src/wcb/demo.py, for a free static Hugging Face Space.
+
+  Explore tab: precomputed results from scripts/build_demo_samples.py (demo_bank_samples.json).
+  Try tab:     the pooled RoBERTa checkpoint, exported at full precision by
+               scripts/export_web_model.py, run in the visitor's browser with transformers.js.
+
+  Open with ?local to load the model from ./web_model/ instead of the Hub (for testing).
+-->
+<style>
+:root {
+  --bg: #fbfaf7; --panel: #ffffff; --text: #1a1a18; --muted: #5d5c57; --rule: #e4e3df;
+  --accent: #2a78d6; --warn: #eb6834;
+  --hawkish: #e34948; --dovish: #2a78d6; --neutral: #6b6a66; --irrelevant: #a8a7a2;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #1f1f1d; --text: #ecebe7; --muted: #a9a8a2; --rule: #3a3936;
+    --accent: #5b9bea; --neutral: #9a9994; --irrelevant: #77766f;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --panel: #1f1f1d; --text: #ecebe7; --muted: #a9a8a2; --rule: #3a3936;
+  --accent: #5b9bea; --neutral: #9a9994; --irrelevant: #77766f;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+       font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1040px; margin: 0 auto; padding: 28px 16px 60px; }
+h1 { font-size: 1.8em; margin: 0 0 6px; }
+p { margin: 0 0 12px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.88em; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--rule); margin: 22px 0 18px; }
+.tabs button { font: inherit; background: none; border: none; color: var(--muted);
+               padding: 9px 14px; cursor: pointer; border-bottom: 2px solid transparent; }
+.tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent);
+                                     font-weight: 600; }
+label { display: block; font-weight: 600; font-size: 0.92em; margin-bottom: 6px; }
+select, textarea { width: 100%; font: inherit; color: var(--text); background: var(--panel);
+                   border: 1px solid var(--rule); border-radius: 8px; padding: 9px 10px; }
+textarea { min-height: 220px; resize: vertical; }
+.grid { display: grid; grid-template-columns: 3fr 2fr; gap: 18px; margin-bottom: 18px; }
+@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; }
+.btn { font: inherit; font-weight: 600; background: var(--accent); color: #fff; border: none;
+       border-radius: 8px; padding: 11px 16px; width: 100%; cursor: pointer; margin-top: 14px; }
+.btn:disabled { opacity: 0.6; cursor: progress; }
+.file { margin-top: 12px; font-size: 0.9em; }
+.file input { font: inherit; color: var(--muted); max-width: 100%; }
+.status { font-size: 0.88em; color: var(--muted); margin-top: 10px; min-height: 1.3em; }
+.status.error { color: var(--hawkish); }
+progress { width: 100%; height: 8px; margin-top: 8px; accent-color: var(--accent); }
+.note { border-left: 4px solid var(--warn); background: rgba(235,104,52,0.14);
+        padding: 10px 14px; border-radius: 4px; margin-bottom: 14px; }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 10px; color: #fff;
+        font-size: 0.85em; white-space: nowrap; }
+.ok { color: #1baf7a; font-weight: 600; } .bad { color: var(--hawkish); font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+th { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); font-weight: 600; }
+td { padding: 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.scorerow { display: flex; align-items: center; gap: 10px; margin: 4px 0; }
+.scorerow .name { width: 190px; font-size: 0.9em; color: var(--muted); flex-shrink: 0; }
+.track { flex: 1; max-width: 320px; height: 12px; background: var(--rule); border-radius: 6px; }
+.track div { height: 12px; border-radius: 6px; }
+.sent { margin: 0 0 9px; padding-left: 10px; border-left: 3px solid; }
+.sent .meta { font-size: 0.78em; color: var(--muted); margin-bottom: 2px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Central Bank Stance Reader</h1>
+  <p>Central banks raise interest rates to cool inflation and cut them to support the
+  economy. This model reads central bank statements one sentence at a time and labels each
+  one <b>hawkish</b> (leans toward higher rates), <b>dovish</b> (leans toward lower rates),
+  <b>neutral</b>, or <b>irrelevant</b> (not about policy).</p>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-explore" aria-selected="true">Explore the 25 banks</button>
+    <button role="tab" id="tab-try" aria-selected="false">Try your own statement</button>
+  </div>
+
+  <section id="panel-explore">
+    <p><b>What happens when the model reads a bank it has never seen?</b> We trained it 25
+    times, each time leaving one bank out, then tested it on that bank. Pick a bank to
+    compare the model trained with it against the one that never saw it. Banks are sorted
+    by how much the score drops.</p>
+    <label for="bank-pick">Central bank</label>
+    <select id="bank-pick"></select>
+    <div id="bank-out" style="margin-top:18px"></div>
+  </section>
+
+  <section id="panel-try" class="hidden">
+    <p>Paste a statement or upload one as a <b>.txt</b> or <b>.pdf</b> file, then click
+    <b>Analyze</b>. You get a label for every sentence and an overall score from
+    <b>&minus;1 (fully dovish)</b> to <b>+1 (fully hawkish)</b>.</p>
+    <div class="grid">
+      <div>
+        <label for="text">Statement</label>
+        <textarea id="text"></textarea>
+        <div class="file">
+          <label for="upload" style="font-weight:400">Or upload a statement (.txt or .pdf)</label>
+          <input type="file" id="upload" accept=".txt,.pdf,text/plain,application/pdf">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <label for="bank">Was this bank in the training data?</label>
+          <select id="bank"></select>
+          <div class="small muted" style="margin-top:6px">One model reads every bank the same
+          way, so this doesn't change the reading. It only tells you how much to trust it.</div>
+          <button class="btn" id="go">Analyze</button>
+          <div class="status" id="status"></div>
+          <progress id="progress" class="hidden" max="1" value="0"></progress>
+        </div>
+        <p class="small muted" style="margin-top:12px">The model runs entirely in your
+        browser, so your text is never sent anywhere. The first time you click Analyze, it
+        downloads the model (about 500 MB, once; your browser keeps it afterwards).</p>
+      </div>
+    </div>
+    <div id="out"></div>
+  </section>
+</main>
+
+<script type="module">
+const LOCAL = new URLSearchParams(location.search).has("local");
+
+// --- mirrored from src/wcb/demo.py and config.py --------------------------------------
+const STANCES = ["hawkish", "dovish", "neutral", "irrelevant"];     // model output order
+const COLOR = s => `var(--${s})`;
+const MEANINGS = {
+  hawkish: "leans toward higher interest rates (fighting inflation)",
+  dovish: "leans toward lower interest rates (supporting growth and jobs)",
+  neutral: "about policy or the economy, but doesn't lean either way",
+  irrelevant: "not about monetary policy (e.g. scheduling)",
+};
+const THRESHOLD = 0.5414676666259766;   // least-confident 15% of validation sentences
+const MAX_SENTENCES = 150;
+const UNSEEN_DROP = 3, WORST_DROP = 15;
+const MODEL_NAME = "fine-tuned RoBERTa language model";
+const OTHER_BANK = "No / another bank";
+const BANKS = [
+  "Bank Negara Malaysia", "Bank of Canada", "Bank of the Republic (Colombia)",
+  "Bank of England", "Bank of Israel", "Bank of Japan", "Bank of Korea", "Bank of Mexico",
+  "Central Bank of the Philippines", "Bank of Thailand", "Central Bank of Brazil (COPOM)",
+  "Central Bank of Chile", "Central Bank of Egypt", "Central Bank of the Russian Federation",
+  "Central Bank of Turkey", "Central Bank of China (Taiwan)", "Central Reserve Bank of Peru",
+  "European Central Bank", "Federal Reserve System (FOMC)", "Monetary Authority of Singapore",
+  "National Bank of Poland", "People's Bank of China", "Reserve Bank of India",
+  "Reserve Bank of Australia", "Swiss National Bank",
+];
+const BANK_NOTES = {
+  bank_negara_malaysia:
+    "Why it's hard: Malaysia's annotators usually labeled upbeat growth sentences " +
+    "(\"growth is expected to remain strong\") as <b>dovish</b>. Many other banks label " +
+    "similar sentences hawkish or neutral, so a model that never saw Malaysia tends to " +
+    "disagree with its labels.",
+  monetary_authority_singapore:
+    "Why it's hard: Singapore sets policy through its exchange rate (the S$NEER policy " +
+    "band) instead of an interest rate. Letting the currency rise is a <b>tightening</b>, " +
+    "but that vocabulary barely appears at any other bank, so a model that never saw " +
+    "Singapore misreads it. It also labels growth news mostly neutral.",
+};
+// Shown with a reading when the statement comes from one of these banks. Keyed by
+// display name, because that is what the Try tab's dropdown holds.
+const READING_NOTES = {
+  "Bank Negara Malaysia":
+    "Malaysia's annotators usually labeled upbeat growth sentences as <b>dovish</b>, while " +
+    "most other banks label them neutral or hawkish. This model reads every bank the same " +
+    "way, so for Malaysian statements its score may come out more hawkish than Malaysia's " +
+    "own labels would be.",
+  "Monetary Authority of Singapore":
+    "Singapore sets policy through its exchange rate (the S$NEER policy band) instead of an " +
+    "interest rate: letting the currency rise is a <b>tightening</b>. That vocabulary is rare " +
+    "in the training data, so sentences about the policy band are the ones most worth checking.",
+};
+const EXAMPLE =
+  "The Committee judges that inflation remains elevated and that risks to price stability " +
+  "are tilted to the upside. Accordingly, the Committee decided to raise the target range " +
+  "for the federal funds rate by 25 basis points. Economic activity has continued to " +
+  "expand at a moderate pace, although growth in business investment has slowed. The " +
+  "Committee will continue to monitor incoming data and stands ready to adjust the stance " +
+  "of policy as appropriate. The next meeting is scheduled for March 15.";
+// ---------------------------------------------------------------------------------------
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g,
+  c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pill = s => `<span class="pill" style="background:${COLOR(s)}">${s}</span>`;
+const signed = x => (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(2);
+
+// Tabs
+for (const [tab, panel] of [["tab-explore", "panel-explore"], ["tab-try", "panel-try"]]) {
+  $(tab).addEventListener("click", () => {
+    for (const t of ["tab-explore", "tab-try"]) $(t).setAttribute("aria-selected", t === tab);
+    for (const p of ["panel-explore", "panel-try"]) $(p).classList.toggle("hidden", p !== panel);
+  });
+}
+
+// --- Explore tab -----------------------------------------------------------------------
+function scoreRow(name, value, color) {
+  return `<div class="scorerow"><span class="name">${name}</span>
+    <div class="track"><div style="width:${value.toFixed(0)}%;background:${color}"></div></div>
+    <span style="font-weight:600;width:40px">${value.toFixed(0)}</span></div>`;
+}
+function modelCell(pred, human) {
+  const mark = pred === human
+    ? `<span class="ok" title="matches the human label">&#10003;</span>`
+    : `<span class="bad" title="disagrees with the human label">&#10007;</span>`;
+  return `${pill(pred)} ${mark}`;
+}
+function renderBank(e) {
+  const drop = e.drop_points;
+  const headline = drop >= 0.5
+    ? `Leaving ${esc(e.name)} out of training costs the model <b>${drop.toFixed(1)} points</b>.`
+    : `Leaving ${esc(e.name)} out of training makes <b>no real difference</b>: the model reads it just as well without it.`;
+  let h = `<div style="font-size:1.15em;margin-bottom:8px">${headline}</div>
+    ${scoreRow("Model trained with this bank", e.with_bank_f1, "#2a78d6")}
+    ${scoreRow("Model that never saw it", e.without_bank_f1, "#eb6834")}
+    <div class="muted" style="font-size:0.8em;margin:4px 0 12px">Accuracy score (weighted
+    F1, out of 100) on all of this bank's test sentences, averaged over three test splits.</div>`;
+  if (BANK_NOTES[e.bank]) h += `<div class="note">${BANK_NOTES[e.bank]}</div>`;
+  h += `<div class="table-wrap"><table><tr><th>Year</th><th>Sentence</th><th>Human label</th>
+        <th>Trained with bank</th><th>Never saw bank</th></tr>`;
+  for (const s of e.sentences) {
+    h += `<tr><td>${s.year ?? ""}</td><td>${esc(s.text)}</td><td>${pill(s.human)}</td>
+          <td>${modelCell(s.with_bank, s.human)}</td><td>${modelCell(s.without_bank, s.human)}</td></tr>`;
+  }
+  return h + "</table></div>";
+}
+fetch("demo_bank_samples.json").then(r => r.json()).then(({ banks }) => {
+  const pick = $("bank-pick");
+  banks.forEach((e, i) => pick.add(new Option(
+    e.drop_points >= 0.5 ? `${e.name}  ·  ${e.drop_points.toFixed(1)}-point drop`
+                         : `${e.name}  ·  no real drop`, i)));
+  const show = () => { $("bank-out").innerHTML = renderBank(banks[pick.value]); };
+  pick.addEventListener("change", show);
+  show();
+}).catch(() => { $("bank-out").innerHTML = `<p class="muted">Couldn't load the sample sentences.</p>`; });
+
+// --- Try tab ---------------------------------------------------------------------------
+$("text").value = EXAMPLE;
+for (const b of [...BANKS, OTHER_BANK]) $("bank").add(new Option(b, b));
+$("bank").value = "Federal Reserve System (FOMC)";
+$("out").innerHTML = `<p class="muted">Click Analyze to read the statement above.</p>`;
+
+function setStatus(msg, isError = false) {
+  $("status").textContent = msg;
+  $("status").classList.toggle("error", isError);
+}
+
+function splitSentences(text) {
+  text = text.trim();
+  if (!text) return [];
+  if (Intl.Segmenter) {
+    const seg = new Intl.Segmenter("en", { granularity: "sentence" });
+    return [...seg.segment(text)].map(s => s.segment.trim()).filter(Boolean);
+  }
+  return text.split(/(?<=[.!?])\s+(?=[A-Z(])/).map(s => s.trim()).filter(Boolean);
+}
+
+// The model lives in worker.js and is downloaded on the first Analyze, so visitors who
+// only explore never download it, and the page never freezes while it reads.
+const worker = new Worker("worker.js", { type: "module" });
+const pending = new Map();
+let nextId = 0, modelReady = false;
+worker.onmessage = ({ data: m }) => {
+  if (m.type === "download") {
+    $("progress").classList.remove("hidden");
+    $("progress").value = m.loaded / m.total;
+    setStatus(`Downloading the model: ${(m.loaded / 1e6).toFixed(0)} of ${(m.total / 1e6).toFixed(0)} MB (one time only)`);
+    return;
+  }
+  const job = pending.get(m.id);
+  if (!job) return;
+  if (m.type === "batch") { modelReady = true; job.onBatch?.(m.done, m.total); return; }
+  pending.delete(m.id);
+  m.type === "result" ? job.resolve(m.probs) : job.reject(new Error(m.message));
+};
+
+function predict(sentences, onBatch) {
+  return new Promise((resolve, reject) => {
+    const id = nextId++;
+    pending.set(id, { resolve, reject, onBatch });
+    worker.postMessage({ type: "predict", id, sentences, local: LOCAL });
+  });
+}
+window.stancePredict = predict;   // used by the consistency check; harmless otherwise
+
+function scoreBar(score, color) {
+  const pos = (score + 1) / 2 * 100;
+  return `<div style="max-width:420px;margin:6px 0 4px">
+    <div style="position:relative;height:8px;border-radius:4px;background:linear-gradient(90deg,#2a78d633,var(--rule),#e3494833)">
+      <div style="position:absolute;left:50%;top:-3px;width:1px;height:14px;background:#8a8a85"></div>
+      <div style="position:absolute;left:calc(${pos.toFixed(1)}% - 7px);top:-3px;width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 0 1px #8a8a85"></div>
+    </div>
+    <div class="muted" style="display:flex;justify-content:space-between;font-size:0.78em;margin-top:4px">
+      <span>&minus;1 fully dovish</span><span>0 balanced</span><span>+1 fully hawkish</span></div></div>`;
+}
+
+function render(preds, bank, nTotal) {
+  if (!preds.length) return `<p class="muted">Paste or upload a statement, then click Analyze.</p>`;
+  const hawk = preds.filter(p => p.label === "hawkish").length;
+  const dove = preds.filter(p => p.label === "dovish").length;
+  const relevant = preds.filter(p => p.label !== "irrelevant").length;
+  const score = relevant ? (hawk - dove) / relevant : 0;
+  const nAside = preds.length - relevant;
+  const aside = nAside === 0 ? "No sentences were" : nAside === 1 ? "1 sentence was" : `${nAside} sentences were`;
+  const direction = score > 0.05 ? "leans hawkish" : score < -0.05 ? "leans dovish" : "balanced";
+  const color = COLOR(score > 0.05 ? "hawkish" : score < -0.05 ? "dovish" : "neutral");
+
+  let h = "";
+  if (bank === OTHER_BANK) {
+    h += `<div class="note"><strong>Heads up: the model never saw statements from this bank.</strong><br>
+      <span class="muted" style="font-size:0.92em">In our tests, this model scored about
+      ${UNSEEN_DROP} points lower (on a 0&ndash;100 accuracy scale) on banks it wasn't trained
+      on, and up to ${WORST_DROP} points lower for banks with unusual wording. Treat this
+      reading as a rough guide.</span></div>`;
+  } else {
+    h += `<div class="muted small" style="margin-bottom:10px">The model was trained on
+      statements from ${esc(bank)} (along with the other 24 banks), so this is the case it
+      handles best.</div>`;
+    if (READING_NOTES[bank]) h += `<div class="note">${READING_NOTES[bank]}</div>`;
+  }
+  if (nTotal > preds.length) {
+    h += `<div class="muted small" style="margin-bottom:10px">This text has ${nTotal}
+      sentences; only the first ${preds.length} were analyzed. Paste a shorter excerpt to
+      read a later part.</div>`;
+  }
+  h += `<div style="display:flex;align-items:baseline;gap:14px">
+      <span style="font-size:2.1em;font-weight:600;color:${color}">${signed(score)}</span>
+      <span class="muted">overall stance &middot; <strong>${direction}</strong></span></div>
+    ${scoreBar(score, color)}
+    <div class="muted" style="font-size:0.9em;margin:8px 0 14px">How it's computed:
+      (${hawk} hawkish &minus; ${dove} dovish) &divide; ${relevant} sentences about policy =
+      ${signed(score)}. ${aside} set aside as not about policy. Model: ${MODEL_NAME}.</div>
+    <div style="margin-bottom:12px;font-size:0.85em;line-height:1.7">`;
+  for (const s of STANCES) {
+    h += `<div><span style="display:inline-block;width:10px;height:10px;background:${COLOR(s)};
+      border-radius:2px;margin-right:6px"></span><strong>${s}</strong>
+      <span class="muted">&mdash; ${MEANINGS[s]}</span></div>`;
+  }
+  h += `</div><div style="border-top:1px solid var(--rule);padding-top:10px">`;
+  preds.forEach((p, i) => {
+    const flag = p.unsure ? `<span style="color:var(--warn);font-weight:600" title="The model
+      is less sure about this sentence than about 85% of the sentences it was tested on">
+      &#9888; unsure &mdash; worth a second look</span>` : "";
+    h += `<div class="sent" style="border-left-color:${COLOR(p.label)}">
+      <div class="meta">${i + 1}. <strong style="color:${COLOR(p.label)}">${p.label}</strong>
+      &middot; model is ${Math.round(p.confidence * 100)}% sure ${flag}</div>
+      <div>${esc(p.sentence)}</div></div>`;
+  });
+  return h + "</div>";
+}
+
+$("go").addEventListener("click", async () => {
+  const all = splitSentences($("text").value);
+  const sentences = all.slice(0, MAX_SENTENCES);
+  const bank = $("bank").value;
+  if (!sentences.length) { $("out").innerHTML = render([], bank, 0); return; }
+  $("go").disabled = true;
+  setStatus(modelReady ? "Reading..." : "Loading the model...");
+  try {
+    const probs = await predict(sentences, (done, n) => {
+      $("progress").classList.add("hidden");
+      setStatus(`Reading sentence ${done} of ${n}...`);
+    });
+    const preds = probs.map((p, i) => {
+      const k = p.indexOf(Math.max(...p));
+      return { sentence: sentences[i], label: STANCES[k], confidence: p[k], unsure: p[k] < THRESHOLD };
+    });
+    $("out").innerHTML = render(preds, bank, all.length);
+    setStatus("");
+  } catch (err) {
+    console.error(err);
+    setStatus("Couldn't load or run the model. Check your connection and try again.", true);
+  } finally {
+    $("go").disabled = false;
+    $("progress").classList.add("hidden");
+  }
+});
+
+// Uploads: text lands in the box so people can check it before analyzing.
+async function extractPdf(file) {
+  const pdfjs = await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");
+  pdfjs.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+  const pdf = await pdfjs.getDocument({ data: await file.arrayBuffer() }).promise;
+  let raw = "";
+  for (let n = 1; n <= pdf.numPages; n++) {
+    const content = await (await pdf.getPage(n)).getTextContent();
+    raw += content.items.map(it => it.str + (it.hasEOL ? "\n" : "")).join("") + "\n";
+  }
+  return raw.replace(/(\w)-\n(\w)/g, "$1$2");     // re-join words hyphenated at line ends
+}
+$("upload").addEventListener("change", async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  setStatus("Reading the file...");
+  try {
+    const raw = file.name.toLowerCase().endsWith(".pdf") ? await extractPdf(file) : await file.text();
+    const text = raw.replace(/\s+/g, " ").trim();
+    if (!text) {
+      setStatus("No text found in that file. If it's a scanned PDF, it has no text layer; copy and paste the statement instead.", true);
+      return;
+    }
+    $("text").value = text;
+    setStatus("Text extracted. Check it in the box (PDF headers and footers can sneak in), then click Analyze.");
+  } catch (err) {
+    console.error(err);
+    setStatus("Couldn't read that file. Try a different PDF, or copy and paste the text instead.", true);
+  }
+});
+</script>
+</body>
+</html>
