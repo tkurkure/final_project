@@ -1,13 +1,10 @@
 # Cross-Bank Monetary Policy Stance Detection
 
-CS 72 final project. Sentence-level stance classification (hawkish / dovish / neutral /
+Sentence-level stance classification (hawkish / dovish / neutral /
 irrelevant) of central-bank communications, built on the World Central Banks (WCB)
 dataset of Shah et al. (2025).
 
 **Live demo:** https://huggingface.co/spaces/f006tsj/central-bank-stance-reader
-(full screen: https://f006tsj-central-bank-stance-reader.static.hf.space/index.html).
-The fine-tuned model runs in the visitor's browser; the exported weights are at
-https://huggingface.co/f006tsj/central-bank-stance-roberta.
 
 ## Research questions
 
@@ -78,7 +75,7 @@ results/                one JSON per fold (committed)
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -e ".[demo]"
 
-# on a GPU cluster that already has torch -- do NOT reinstall torch, it would
+# on a GPU cluster that already has torch -- do not reinstall torch, it would
 # replace the CUDA-matched build with a generic one
 pip install -e ".[demo]"
 
@@ -112,7 +109,7 @@ scripts/deploy_web.sh f006tsj
 Every run is **resumable** — a fold whose results file exists is skipped — so an
 8-hour JupyterHub session that times out costs one fold, not the sweep.
 
-## Data notes (verified, not assumed)
+## Data notes
 
 These cost real debugging time, so they are recorded here:
 
